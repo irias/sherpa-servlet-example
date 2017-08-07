@@ -10,7 +10,7 @@ Now open the API at:
 
 	http://localhost:8080/example/
 
-[1] https://www.ueber.net/who/mjl/sherpa/
-[2] https://github.com/irias/sherpa-servlet
+- [1] https://www.ueber.net/who/mjl/sherpa/
+- [2] https://github.com/irias/sherpa-servlet
 
 License: public domain, feel free to reuse this example code in any way you see fit.
