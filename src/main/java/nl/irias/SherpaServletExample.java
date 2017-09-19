@@ -16,7 +16,7 @@ public class SherpaServletExample {
 	final static boolean SHOW_SHERPA_ERRORS = DEV;
 	final static String BIND = "0.0.0.0";
 	final static int PORT = 8080;
-	final static String VERSION = "0.0.1";
+	final static String VERSION = "0.2.0";
 
 	static class SherpaThrowableFormatter implements ThrowableFormatter {
 		@Override
@@ -25,6 +25,14 @@ public class SherpaServletExample {
 				return t.toString();
 			}
 			return "An error occurred. Please try again later, or contact us.";
+		}
+	}
+
+	static class ExceptionTransformer implements SherpaExceptionTransformer {
+		@Override
+		public Exception transform(Exception e) {
+			// fixme: check for exception types.  for example, check SQLException, and return a gentle SherpaUserException when unique constraints were violated...
+			return e;
 		}
 	}
 
@@ -79,7 +87,7 @@ public class SherpaServletExample {
 
 		// Prepare and mount the Sherpa API on /example/
 		ThrowableFormatter formatter = new SherpaThrowableFormatter();
-		ServletHolder sherpaHandler = new ServletHolder(new SherpaServlet("/example/", "example", "Example", VERSION, sections, sherpaDoc, formatter, null));
+		ServletHolder sherpaHandler = new ServletHolder(new SherpaServlet("/example/", "example", "Example", VERSION, sections, sherpaDoc, formatter, null, new ExceptionTransformer()));
 		handler.addServlet(sherpaHandler, "/example/*");
 
 		server.setHandler(handler);

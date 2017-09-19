@@ -4,7 +4,7 @@ See src/main/java/nl/irias/SherpaServletExample.java and the exported src/main/j
 
 Run as follows:
 
-	mvn clean install && java -jar target/SherpaServletExample-0.0.1.jar
+	mvn clean install && java -jar target/SherpaServletExample-0.2.0.jar
 
 Now open the API at:
 
