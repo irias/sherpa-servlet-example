@@ -34,7 +34,7 @@ public class Example {
 	 * SherpaServerExceptions are logged as implementation errors (that should probably be fixed).
 	 */
 	@SherpaFunction
-	public static void error() throws SherpaException {
+	public static void error(String param1) throws SherpaException {
 		randomError();
 	}
 

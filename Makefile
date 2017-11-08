@@ -1,5 +1,5 @@
 default:
-	mvn -B clean install && java -jar target/SherpaServletExample-0.2.0.jar
+	mvn -B clean install && java -Djava.util.logging.config.file=logging.properties -jar target/SherpaServletExample-0.2.1.jar
 
 clean:
 	-mvn -B clean
